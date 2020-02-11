@@ -1,11 +1,14 @@
 import React from 'react';
+import Header from './Header';
 
-import styles from '../scss/App.scss';
+import styles from '../scss/pages/App.scss';
 
 const App = () => (
-	<div className={styles.center}>
-		<h1>Hello world!</h1>
-		<h2>Webpack-React-Typescript Boilerplate</h2>
+	<div className={styles.container}>
+		<Header/>
+		<div className={`${styles.row} ${styles.center}`}>
+			Test
+		</div>
 	</div>
 );
 

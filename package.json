@@ -40,5 +40,8 @@
     "webpack-dev-server": "^3.8.0",
     "webpack-merge": "^4.2.1",
     "write-file-webpack-plugin": "^4.5.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1"
   }
 }

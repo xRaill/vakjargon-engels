@@ -1,0 +1,47 @@
+/*****************/
+/*  TRANSISTION  */
+/*****************/
+
+@mixin list($props, $start: false, $exit: false) {
+	@each $key, $val in $props {
+		$a: 0;
+
+		@if $exit and $start { $a: 2; }
+		@else if $exit { @if length($val) == 3 { $a: 3; } @else { $a: 1; }; }
+		@else if $start { $a: 1; }
+		@else { $a: 2; }
+		
+		#{$key}: nth($val, $a);
+	}
+}
+
+@function get-transition($prop-keys, $speed, $timing-function, $exit: false) {
+	$tf: []; $list: ();
+
+	@if $exit and type-of($timing-function) == 'list' { $tf: append($speed, nth($timing-function, 2)); }
+	@else { $tf: append($speed, $timing-function); }
+
+	@each $val in $prop-keys { $list: join($list, append([], append($val, $tf)), $separator: comma); }
+	@return $list;
+}
+
+@mixin transition($props, $speed, $timing-function) {
+
+	@each $key, $val in $props {
+		@if not length($val) == 2 or not length($val) == 3 { @error $key length is not 2 or 3; }
+	}
+
+	&{ @include list($props, true, false); }
+
+	&-enter {
+		transition: get-transition(map-keys($props), $speed, $timing-function);
+		@include list($props, true, false);
+		&-active, &-done { @include list($props, false, false); }
+	}
+
+	&-exit {
+		transition: get-transition(map-keys($props), $speed, $timing-function, true);
+		@include list($props, true, true);
+		&-active, &-done { @include list($props, false, true); }
+	}
+}
