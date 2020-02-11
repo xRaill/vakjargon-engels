@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"outDir": "./build",
+		"module": "esnext",		
+		"target": "es5",
+		"jsx": "react",
+		"typeRoots": [
+			"node_modules/@types"
+		]	
+	}
+}
