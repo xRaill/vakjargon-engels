@@ -1,7 +1,23 @@
-@import 'main';
+@import '~normalize-scss/sass/normalize';
+@import '~bootstrap/scss/bootstrap.scss';
+@import '../base/mixins';
+
+@include normalize();
+
+* , *::before, *::after {
+	box-sizing: border-box;
+}
 
 .center {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
+
+// @include transition((
+// 	top: 10% 0,
+// 	z-index: inherit inherit,
+// 	opacity: 0 1,
+// 	pointer-events: none initial,
+// 	background-color: initial rgba(0,0,0,0.6),
+// ), .5s, ease)

@@ -218,7 +218,6 @@ interface CssExports {
   'carousel-item-next': string;
   'carousel-item-prev': string;
   'carousel-item-right': string;
-  'center': string;
   'clearfix': string;
   'close': string;
   'col': string;
@@ -515,7 +514,6 @@ interface CssExports {
   'h4': string;
   'h5': string;
   'h6': string;
-  'header': string;
   'hide': string;
   'img-fluid': string;
   'img-thumbnail': string;

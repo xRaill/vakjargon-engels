@@ -6,9 +6,16 @@ import Header from './components/Header';
 
 import styles from '../scss/pages/App.scss';
 
+interface Route {
+	path:   string
+	name:   string
+	menu?:  boolean
+	exact?: boolean
+} 
+
 const App = () => {
 
-	const Routes = [
+	const Routes: Route[] = [
 		{path: '/', name: 'Main', menu: true, exact: true},
 		{path: '', name: 'NotFound'}
 	];
@@ -25,7 +32,7 @@ const App = () => {
 				<div className={styles.row}><Header/></div>
 				<div className={styles.row}>
 					<Switch>
-						{Routes.map((route, i) => <Route
+						{Routes.map((route: Route, i: number) => <Route
 							key={i}
 							path={route.path}
 							component={LoadPage(route.name)}
