@@ -65,20 +65,25 @@ const Game = () => {
 	}, [chosenAnswer]);
 
 	return(
-		<div>
+		<>
+		<div className={`${styles.row} ${styles["justify-content-center"]} ${styles["py-lg-5"]}`}>
 			<h1>{currentQuestion ? currentQuestion.question : ''}</h1>
-			<div>
-				<ul>
-					{currentQuestion ? 
-						answers.map((a,i) =>
-						<li key={i}
-							onClick={()=> setChosenAnswer(a.i)}>
-							{a.v}
-						</li>)
-					:''}
-				</ul>
-			</div>
 		</div>
+		<div className={styles.row}>
+			{currentQuestion ? 
+				answers.map((a,i) =>
+				<div className={`${styles["col-lg-6"]} ${styles.center} ${styles["py-4"]} ${styles["py-lg-5"]}`}
+					key={i}>
+
+					<button className={`${styles.btn} ${styles["btn-primary"]} ${styles["w-75"]} ${styles["py-3"]}`}
+						onClick={()=> setChosenAnswer(a.i)}>
+						{a.v}
+					</button>
+
+				</div>)
+			:''}
+		</div>
+		</>
 	);
 };
 

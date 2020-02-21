@@ -32,16 +32,14 @@ const App = () => {
 		<Router>
 			<div className={styles.container}>
 				<div className={styles.row}><Header/></div>
-				<div className={styles.row}>
-					<Switch>
-						{Routes.map((route: Route, i: number) => <Route
-							key={i}
-							path={route.path}
-							component={LoadPage(route.name)}
-							exact={!!route.exact}
-						/>)}
-					</Switch>
-				</div>
+				<Switch>
+					{Routes.map((route: Route, i: number) => <Route
+						key={i}
+						path={route.path}
+						component={LoadPage(route.name)}
+						exact={!!route.exact}
+					/>)}
+				</Switch>
 			</div>
 		</Router>
 	);
