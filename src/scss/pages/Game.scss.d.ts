@@ -1275,6 +1275,13 @@ interface CssExports {
   'pl-xl-4': string;
   'pl-xl-5': string;
   'pointer-event': string;
+  'popIn': string;
+  'popIn-enter': string;
+  'popIn-enter-active': string;
+  'popIn-enter-done': string;
+  'popIn-exit': string;
+  'popIn-exit-active': string;
+  'popIn-exit-done': string;
   'popover': string;
   'popover-body': string;
   'popover-header': string;
