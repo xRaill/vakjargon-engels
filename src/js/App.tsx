@@ -6,7 +6,7 @@ import Header from './components/Header';
 
 import styles from '../scss/pages/App.scss';
 
-interface Route {
+interface route {
 	path:   string
 	name:   string
 	menu?:  boolean
@@ -15,7 +15,7 @@ interface Route {
 
 const App = () => {
 
-	const Routes: Route[] = [
+	const Routes: route[] = [
 		{path: '/', name: 'Main', menu: true, exact: true},
 		{path: '/game', name: 'Game'},
 		{path: '/test', name: 'Test'},
@@ -33,7 +33,7 @@ const App = () => {
 			<div className={styles.container}>
 				<div className={styles.row}><Header/></div>
 				<Switch>
-					{Routes.map((route: Route, i: number) => <Route
+					{Routes.map((route: route, i: number) => <Route
 						key={i}
 						path={route.path}
 						component={LoadPage(route.name)}
