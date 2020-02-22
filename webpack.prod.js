@@ -56,6 +56,7 @@ module.exports = merge(common, {
 					comments: false,
 				},
 			},
+			extractComments: false
 		}), new OptimizeCssAssetsPlugin({
 			cssProcessorPluginOptions: {
 				preset: ['default', { discardComments: { removeAll: true } }],
