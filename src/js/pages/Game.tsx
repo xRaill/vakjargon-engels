@@ -59,20 +59,19 @@ const Game = () => {
 				answer.b = 'success';
 			} else {
 				answer.b = 'danger';
+				setChosenAnswer(null);
 			}
-			// Set to null if you want to answer again
-			setChosenAnswer(null);
 		}
 	}, [chosenAnswer]);
 	
 	return(
 		<>
 		<div className={`${styles.row} ${styles["justify-content-center"]} ${styles["py-lg-5"]}`}>
-			<Transition in={!chosenAnswer} timeout={500} className={"slideFadeIn"} style={styles}>
+			<Transition in={chosenAnswer === null} timeout={500} className={"slideFadeIn"} style={styles}>
 				<h1>{currentQuestion ? currentQuestion.question : ''}</h1>
 			</Transition>
 		</div>
-		<Transition in={!chosenAnswer} timeout={500} className={"popIn"} style={styles}>
+		<Transition in={chosenAnswer === null} timeout={500} className={"popIn"} style={styles}>
 			<div className={`${styles.row}`}>
 				{currentQuestion ?
 					answers.map(a =>
