@@ -21,8 +21,7 @@ const Transition = (props: Props) => (
 			exitActive:  props.style[props.className + "-exit-active"],
 			exitDone:    props.style[props.className + "-exit-done"]
 		}}
-		mountOnEnter
-	>
+		mountOnEnter>
 		<>{props.children}</>
 	</CSSTransition>
 );

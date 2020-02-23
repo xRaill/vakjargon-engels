@@ -74,14 +74,14 @@ const Game = () => {
 			<div className={`${styles.row}`}>
 				{currentQuestion ?
 					answers.map(a =>
-					<div className={`${styles["col-lg-6"]} ${styles.center} ${styles["py-4"]} ${styles["py-lg-5"]}`}
+					<div
+						className={`${styles["col-lg-6"]} ${styles.center} ${styles["py-4"]} ${styles["py-lg-5"]}`}
 						key={a.i}>
-
-						<button className={`${styles.btn} ${styles["btn-primary"]} ${styles["w-75"]} ${styles["py-3"]}`}
+						<button
+							className={`${styles.btn} ${styles["btn-primary"]} ${styles["w-75"]} ${styles["py-3"]}`}
 							onClick={()=> setChosenAnswer(a.i)}>
 							{a.v}
 						</button>
-
 					</div>)
 				:''}
 			</div>
