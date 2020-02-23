@@ -6,7 +6,7 @@ const path                 = require('path');
 
 module.exports = merge(common, {
 	mode: 'development',
-	devtool: 'inline-source-map', 
+	devtool: 'eval-source-map', 
 	output: {
 		filename: '[name].js',
 		path: path.resolve(__dirname, './build')
