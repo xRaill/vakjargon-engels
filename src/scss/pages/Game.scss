@@ -5,3 +5,10 @@
 		transform: scaleY(0) scaleY(1),
 	), .5s, cubic-bezier(0.250, 0.250, 0.370, 1.650) ease)
 }
+
+.slideFadeIn {
+	@include transition('', (
+		transform: translateY(-100%) translateY(0) translateY(100%),
+		opacity: 0 1
+	), .5s, ease-out ease-in)
+}

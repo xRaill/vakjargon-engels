@@ -1463,6 +1463,13 @@ interface CssExports {
   'shadow-sm': string;
   'show': string;
   'showing': string;
+  'slideFadeIn': string;
+  'slideFadeIn-enter': string;
+  'slideFadeIn-enter-active': string;
+  'slideFadeIn-enter-done': string;
+  'slideFadeIn-exit': string;
+  'slideFadeIn-exit-active': string;
+  'slideFadeIn-exit-done': string;
   'small': string;
   'spinner-border': string;
   'spinner-border-sm': string;

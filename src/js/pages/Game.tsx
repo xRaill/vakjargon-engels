@@ -68,7 +68,9 @@ const Game = () => {
 	return(
 		<>
 		<div className={`${styles.row} ${styles["justify-content-center"]} ${styles["py-lg-5"]}`}>
-			<h1>{currentQuestion ? currentQuestion.question : ''}</h1>
+			<Transition in={!chosenAnswer} timeout={500} className={"slideFadeIn"} style={styles}>
+				<h1>{currentQuestion ? currentQuestion.question : ''}</h1>
+			</Transition>
 		</div>
 		<Transition in={!chosenAnswer} timeout={500} className={"popIn"} style={styles}>
 			<div className={`${styles.row}`}>
