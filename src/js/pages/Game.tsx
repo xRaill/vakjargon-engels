@@ -24,8 +24,8 @@ const Quiz: Quiz[] = [
 const Game = () => {
 
 	const [currentQuestion, setCurrentQuestion] = useState<Quiz>();
-	const [chosenAnswer, setChosenAnswer] = useState<number>();
-	const [answers, setAnswers] = useState<{i: number; v: string}[]>();
+	const [chosenAnswer, setChosenAnswer] = useState<number|true>(true);
+	const [answers, setAnswers] = useState<{i: number; v: string, b: string}[]>();
 
 	useEffect(() => {
 
@@ -34,43 +34,43 @@ const Game = () => {
 
 			setCurrentQuestion(Quiz[randomNum]);
 
-			const answers = Quiz[randomNum].options.map((a,i) => ({i:i,a:a}));
-			let answersNew = [];
+			const prevAnswers = Quiz[randomNum].options.map((a,i) => ({i:i,a:a}));
+			let newAnswers = [];
 			for (let i = 0; i < 4; i++) {
-				const num = Math.floor(Math.random() * answers.length);
-
-				answersNew.push({
-					i: answers[num].i,
-					v: answers[num].a
+				const num = Math.floor(Math.random() * prevAnswers.length);
+				
+				newAnswers.push({
+					i: prevAnswers[num].i,
+					v: prevAnswers[num].a,
+					b: 'primary'
 				});
-
-				answers.splice(num, 1);
+				prevAnswers.splice(num, 1);
 			}
-
-			setAnswers(answersNew);
-		};
+			setChosenAnswer(null);
+			setAnswers(newAnswers);
+		}
 
 		if(!currentQuestion) randomQuestion();
 
-		if(chosenAnswer != undefined) {
+		if(typeof(chosenAnswer) === 'number') {
+			const answer = answers.find(a => a.i == chosenAnswer);
+
 			if(chosenAnswer === currentQuestion.correct) {
-				alert('correct')
-			} else 
-			{
-				alert('false');
+				answer.b = 'success';
+			} else {
+				answer.b = 'danger';
 			}
-
-			setChosenAnswer(undefined);
-		};
-
+			// Set to null if you want to answer again
+			setChosenAnswer(null);
+		}
 	}, [chosenAnswer]);
-
+	
 	return(
 		<>
 		<div className={`${styles.row} ${styles["justify-content-center"]} ${styles["py-lg-5"]}`}>
 			<h1>{currentQuestion ? currentQuestion.question : ''}</h1>
 		</div>
-		<Transition in={!!answers} timeout={500} className={"popIn"} style={styles}>
+		<Transition in={!chosenAnswer} timeout={500} className={"popIn"} style={styles}>
 			<div className={`${styles.row}`}>
 				{currentQuestion ?
 					answers.map(a =>
@@ -78,8 +78,9 @@ const Game = () => {
 						className={`${styles["col-lg-6"]} ${styles.center} ${styles["py-4"]} ${styles["py-lg-5"]}`}
 						key={a.i}>
 						<button
-							className={`${styles.btn} ${styles["btn-primary"]} ${styles["w-75"]} ${styles["py-3"]}`}
-							onClick={()=> setChosenAnswer(a.i)}>
+							className={`${styles.btn} ${styles["btn-"+ a.b]} ${styles["w-75"]} ${styles["py-3"]}`}
+							onClick={()=> setChosenAnswer(a.i)}
+							disabled={a.b !== 'primary'}>
 							{a.v}
 						</button>
 					</div>)
