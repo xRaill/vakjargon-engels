@@ -10,10 +10,7 @@ interface Props {
 }
 
 const Transition = (props: Props) => (
-	<CSSTransition
-		in={props.in}
-		timeout={props.timeout}
-		classNames={{
+	<CSSTransition classNames={{
 			enter:       props.style[props.className + "-enter"],
 			enterActive: props.style[props.className + "-enter-active"],
 			enterDone:   props.style[props.className + "-enter-done"],
@@ -21,6 +18,8 @@ const Transition = (props: Props) => (
 			exitActive:  props.style[props.className + "-exit-active"],
 			exitDone:    props.style[props.className + "-exit-done"]
 		}}
+		in={props.in}
+		timeout={props.timeout}
 		mountOnEnter>
 		<>{props.children}</>
 	</CSSTransition>
