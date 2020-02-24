@@ -1,4 +1,6 @@
 @import 'App';
+@import '~bootstrap/scss/_buttons';
+@import '../components/transition';
 
 .popIn {
 	@include transition('> div', (
