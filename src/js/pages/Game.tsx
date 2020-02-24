@@ -57,13 +57,19 @@ const Game = () => {
 
 			if(chosenAnswer === currentQuestion.correct) {
 				answer.b = 'success';
+				setChosenAnswer(null);
+				setTimeout(() => {
+					setChosenAnswer(true);
+					Quiz.splice(Quiz.findIndex(a => a.id === currentQuestion.id), 1);
+					setTimeout(() => randomQuestion(), 500);
+				}, 1000);
 			} else {
 				answer.b = 'danger';
 				setChosenAnswer(null);
 			}
 		}
 	}, [chosenAnswer]);
-	
+
 	return(
 		<>
 		<div className={`${styles.row} ${styles["justify-content-center"]} ${styles["py-lg-5"]}`}>
