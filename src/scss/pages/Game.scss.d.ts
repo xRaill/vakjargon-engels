@@ -107,6 +107,13 @@ interface CssExports {
   'animateQuestion-exit': string;
   'animateQuestion-exit-active': string;
   'animateQuestion-exit-done': string;
+  'animateScore': string;
+  'animateScore-enter': string;
+  'animateScore-enter-active': string;
+  'animateScore-enter-done': string;
+  'animateScore-exit': string;
+  'animateScore-exit-active': string;
+  'animateScore-exit-done': string;
   'bg-danger': string;
   'bg-dark': string;
   'bg-info': string;

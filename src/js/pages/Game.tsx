@@ -64,10 +64,10 @@ const Game = () => {
 			
 			if(chosenAnswer === currentQuestion.correct) {
 				answer.b = 'success';
-				setScore(score + 1);
+				setTimeout(() => setScore(score + 1), 1200);
 			} else {
 				answer.b = 'danger';
-				setScore(score - 1);
+				setTimeout(() => setScore(score - 1), 1200);
 			}
 			
 			setTimeout(() => {
@@ -82,7 +82,9 @@ const Game = () => {
 		<>
 		<div className={`${styles.row} ${styles["py-lg-5"]}`}>
 			<div className={styles["col-2"]}>
-				<h1 className={styles["text-center"]}>{score}</h1>
+				<Transition in={visible} timeout={500} className={"animateScore"} style={styles}>
+					<h1 className={styles["text-center"]}>{score}</h1>
+				</Transition>
 			</div>
 			<Transition in={visible} timeout={400} className={"animateQuestion"} style={styles}>
 				<h1 className={`${styles["col-8"]} ${styles["text-center"]}`}>

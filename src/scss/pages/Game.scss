@@ -15,6 +15,12 @@
 	), .4s, ease-out ease-in)
 }
 
+.animateScore {
+	@include transition('', (
+		transform: scale(0) scale(1) scale(1.5)
+	), .2s, ease-in ease-out)
+}
+
 .disableClick {
 	pointer-events: none;
 }
