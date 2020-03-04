@@ -27,6 +27,7 @@ const Game = () => {
 	const [answers, setAnswers] = useState<{i: number; v: string, b: string}[]>();
 	const [score, setScore] = useState<number>(0);
 	const [visible, setVisible] = useState<boolean>(false);
+	const [disabled, setDisabled] = useState<boolean>(true);
 
 	useEffect(() => {
 
@@ -50,13 +51,17 @@ const Game = () => {
 
 			setAnswers(newAnswers);
 			setVisible(true);
+			setDisabled(false);
 		}
 
 		if(!currentQuestion) randomQuestion();
-
+		
 		if(typeof(chosenAnswer) === 'number') {
 			const answer = answers.find(a => a.i == chosenAnswer);
 
+			setChosenAnswer(null);
+			setDisabled(true);
+			
 			if(chosenAnswer === currentQuestion.correct) {
 				answer.b = 'success';
 				setScore(score + 1);
@@ -64,9 +69,8 @@ const Game = () => {
 				answer.b = 'danger';
 				setScore(score - 1);
 			}
-
+			
 			setTimeout(() => {
-				setChosenAnswer(null);
 				setVisible(false);
 				Quiz.splice(Quiz.findIndex(a => a.id === currentQuestion.id), 1);
 				setTimeout(() => randomQuestion(), 500);
@@ -92,7 +96,7 @@ const Game = () => {
 					<div key={a.i} className={`
 						${styles["col-lg-6"]} ${styles.center}
 						${styles["py-4"]} ${styles["py-lg-5"]}
-						${chosenAnswer ? styles.disableClick :''}
+						${disabled ? styles.disableClick :''}
 					`}>
 						<button onClick={()=> setChosenAnswer(a.i)} className={`
 							${styles.btn} ${styles["btn-"+ a.b]} ${styles["w-75"]} ${styles["py-3"]}
