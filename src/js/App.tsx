@@ -18,6 +18,7 @@ const App = () => {
 	const Routes: route[] = [
 		{path: '/', name: 'Main', menu: true, exact: true},
 		{path: '/game', name: 'Game'},
+		{path: '/complete', name: 'Complete'},
 		{path: '/test', name: 'Test'},
 		{path: '', name: 'NotFound'}
 	];
