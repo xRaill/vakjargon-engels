@@ -80,13 +80,13 @@ const Game = () => {
 			<div className={styles["col-2"]}>
 				<h1 className={styles["text-center"]}>{score}</h1>
 			</div>
-			<Transition in={visible} timeout={400} className={"slideFadeIn"} style={styles}>
+			<Transition in={visible} timeout={400} className={"animateQuestion"} style={styles}>
 				<h1 className={`${styles["col-8"]} ${styles["text-center"]}`}>
 					{currentQuestion ? currentQuestion.question : ''}
 				</h1>
 			</Transition>
 		</div>
-		<Transition in={visible} timeout={500} className={"popIn"} style={styles}>
+		<Transition in={visible} timeout={500} className={"animateButtons"} style={styles}>
 			<div className={`${styles.row}`}>
 				{currentQuestion ? answers.map(a =>
 					<div key={a.i} className={`
