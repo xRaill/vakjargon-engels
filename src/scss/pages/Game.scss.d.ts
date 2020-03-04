@@ -275,6 +275,7 @@ interface CssExports {
   'd-xl-table': string;
   'd-xl-table-cell': string;
   'd-xl-table-row': string;
+  'disableClick': string;
   'disabled': string;
   'dropdown-toggle': string;
   'embed-responsive': string;

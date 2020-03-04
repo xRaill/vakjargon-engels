@@ -14,3 +14,7 @@
 		opacity: 0 1
 	), .4s, ease-out ease-in)
 }
+
+.disableClick {
+	pointer-events: none;
+}
