@@ -93,6 +93,13 @@ interface CssExports {
   'align-text-bottom': string;
   'align-text-top': string;
   'align-top': string;
+  'animatePage': string;
+  'animatePage-enter': string;
+  'animatePage-enter-active': string;
+  'animatePage-enter-done': string;
+  'animatePage-exit': string;
+  'animatePage-exit-active': string;
+  'animatePage-exit-done': string;
   'bg-danger': string;
   'bg-dark': string;
   'bg-info': string;

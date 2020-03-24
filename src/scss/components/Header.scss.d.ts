@@ -104,6 +104,11 @@ interface CssExports {
   'align-text-bottom': string;
   'align-text-top': string;
   'align-top': string;
+  'animatePage': string;
+  'animatePage-enter': string;
+  'animatePage-enter-active': string;
+  'animatePage-exit': string;
+  'animatePage-exit-active': string;
   'bg-danger': string;
   'bg-dark': string;
   'bg-info': string;
@@ -133,7 +138,6 @@ interface CssExports {
   'border-top-0': string;
   'border-warning': string;
   'border-white': string;
-  'center': string;
   'clearfix': string;
   'close': string;
   'col': string;

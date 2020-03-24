@@ -6,22 +6,15 @@ import Header from './components/Header';
 
 import styles from '../scss/pages/App.scss';
 
-interface route {
-	path:   string
-	name:   string
-	menu?:  boolean
-	exact?: boolean
-} 
+const Routes: {path: string, name: string, exact?: boolean}[] = [
+	{path: '/', name: 'Main', exact: true},
+	{path: '/game', name: 'Game'},
+	{path: '/complete', name: 'Complete'},
+	{path: '/test', name: 'Test'},
+	{path: '', name: 'NotFound'}
+];
 
 const App = () => {
-
-	const Routes: route[] = [
-		{path: '/', name: 'Main', menu: true, exact: true},
-		{path: '/game', name: 'Game'},
-		{path: '/complete', name: 'Complete'},
-		{path: '/test', name: 'Test'},
-		{path: '', name: 'NotFound'}
-	];
 
 	const LoadPage = (name: string) => Loadable({
 		loader: () => import(`./pages/${name}`),
@@ -34,7 +27,7 @@ const App = () => {
 			<div className={styles.container}>
 				<div className={styles.row}><Header/></div>
 				<Switch>
-					{Routes.map((route: route, i: number) => <Route
+					{Routes.map((route, i) => <Route
 						key={i}
 						path={route.path}
 						component={LoadPage(route.name)}
