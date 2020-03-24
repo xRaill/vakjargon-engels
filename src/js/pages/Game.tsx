@@ -3,23 +3,26 @@ import Transition from '../components/Transition';
 import { Redirect } from 'react-router-dom';
 
 import styles from '../../scss/pages/Game.scss';
-interface Quiz {
-	id:       number;
-	question: string;
-	options:  string[];
-	correct:  number;
+
+interface Quiz  {
+	id: number
+	question: string
+	options: string[]
+	correct: number
 }
 
-const Quiz: Quiz[] = [
+const Question: Quiz[] = [
 	{id: 0, question: 'aBCD', options: ['A', 'B', 'C', 'D'], correct: 0},
-	// {id: 1, question: 'AbCD', options: ['A', 'B', 'C', 'D'], correct: 1},
-	// {id: 2, question: 'ABcD', options: ['A', 'B', 'C', 'D'], correct: 2},
-	// {id: 3, question: 'ABCd', options: ['A', 'B', 'C', 'D'], correct: 3},
-	// {id: 4, question: 'Abcd', options: ['A', 'B', 'C', 'D'], correct: 0},
-	// {id: 5, question: 'aBcd', options: ['A', 'B', 'C', 'D'], correct: 1},
-	// {id: 6, question: 'abCd', options: ['A', 'B', 'C', 'D'], correct: 2},
-	// {id: 7, question: 'abcD', options: ['A', 'B', 'C', 'D'], correct: 3}
+	{id: 1, question: 'AbCD', options: ['A', 'B', 'C', 'D'], correct: 1},
+	{id: 2, question: 'ABcD', options: ['A', 'B', 'C', 'D'], correct: 2},
+	{id: 3, question: 'ABCd', options: ['A', 'B', 'C', 'D'], correct: 3},
+	{id: 4, question: 'Abcd', options: ['A', 'B', 'C', 'D'], correct: 0},
+	{id: 5, question: 'aBcd', options: ['A', 'B', 'C', 'D'], correct: 1},
+	{id: 6, question: 'abCd', options: ['A', 'B', 'C', 'D'], correct: 2},
+	{id: 7, question: 'abcD', options: ['A', 'B', 'C', 'D'], correct: 3}
 ];
+
+let Quiz = Question.slice();
 
 const Game = () => {
 
@@ -78,10 +81,13 @@ const Game = () => {
 		}
 	}, [chosenAnswer]);
 	
-	if(!Quiz.length) return <Redirect push to={{
-		pathname: 'complete',
-		state: {score: score}
-	}}/>
+	if(!Quiz.length) {
+		Quiz = Question.slice();
+		return <Redirect push to={{
+			pathname: 'complete',
+			state: {score: score}
+		}}/>
+	}
 	
 	return(
 		<>
