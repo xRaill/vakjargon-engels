@@ -2,30 +2,6 @@
 @import '~bootstrap/scss/bootstrap-reboot';
 @import "~bootstrap/scss/utilities";
 
-.animatePage {
-	position: absolute;
-	left: 15px;
-	right: 15px;
-}
-
-.animatePage-enter {
-	opacity: 0;
-	transform: scale(1.1);
-}
-
-.animatePage-enter-active {
-	opacity: 1;
-	transform: scale(1);
-	transition: opacity 300ms, transform 300ms;
-}
-
-.animatePage-exit {
-	opacity: 1;
-	transform: scale(1);
-}
-
-.animatePage-exit-active {
-	opacity: 0;
-	transform: scale(0.9);
-	transition: opacity 300ms, transform 300ms;
+html, body {
+	overflow: hidden;
 }

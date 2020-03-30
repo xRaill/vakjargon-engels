@@ -27,8 +27,8 @@ const Test = () => {
 			<div className={styles.center}>
 				<h1 className={styles["py-5"]}>Test</h1>
 				<div className={styles["py-5"]}>
-					<button className={`${styles.btn} ${styles["bg-primary"]}`} onClick={() => goTo('/')}>Main</button>
-					<button className={`${styles.btn} ${styles["bg-primary"]}`} onClick={() => goTo('game')}>Start</button>
+					<button className={`${styles.btn} ${styles["bg-primary"]}  ${styles["m-3"]}`} onClick={() => goTo('/')}>Main</button>
+					<button className={`${styles.btn} ${styles["bg-primary"]}  ${styles["m-3"]}`} onClick={() => goTo('game')}>Start</button>
 				</div>
 			</div>
 		</Transition>

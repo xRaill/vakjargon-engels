@@ -100,11 +100,6 @@ interface CssExports {
   'animateButtons-exit': string;
   'animateButtons-exit-active': string;
   'animateButtons-exit-done': string;
-  'animatePage': string;
-  'animatePage-enter': string;
-  'animatePage-enter-active': string;
-  'animatePage-exit': string;
-  'animatePage-exit-active': string;
   'animateQuestion': string;
   'animateQuestion-enter': string;
   'animateQuestion-enter-active': string;

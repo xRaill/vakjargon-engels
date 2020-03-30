@@ -1,7 +1,11 @@
 import React from 'react';
 
+import styles from '../../scss/pages/Loading.scss';
+
 const Loading = (props) => (
-	<h3>Loading...</h3>
+	<div className={styles.center}>
+		<div className={styles["spinner-border"]} role="status" />
+	</div>
 )
 
 export default Loading;

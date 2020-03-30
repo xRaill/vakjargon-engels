@@ -121,6 +121,7 @@ interface CssExports {
   'border-top-0': string;
   'border-warning': string;
   'border-white': string;
+  'center': string;
   'clearfix': string;
   'col': string;
   'col-1': string;
@@ -1193,6 +1194,10 @@ interface CssExports {
   'shadow-lg': string;
   'shadow-none': string;
   'shadow-sm': string;
+  'spinner-border': string;
+  'spinner-border-sm': string;
+  'spinner-grow': string;
+  'spinner-grow-sm': string;
   'sr-only': string;
   'sr-only-focusable': string;
   'sticky-top': string;
