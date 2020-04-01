@@ -4,7 +4,9 @@ import styles from '../../scss/components/Header.scss';
 
 const Header = () => (
 	<div className={`${styles["bg-primary"]} ${styles.alert} ${styles.header}`}>
-		<h1>Hello world!</h1>
+		<div className={styles["text-center"]}>
+			<h1>Vakjargon Engels</h1>
+		</div>
 	</div>
 )
 
