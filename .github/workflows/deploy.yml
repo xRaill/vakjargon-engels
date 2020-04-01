@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
     - name: Git checkout master
       uses: actions/checkout@v2
     
@@ -35,15 +35,10 @@ jobs:
         find . -mindepth 1 ! -regex '^./build\(/.*\)?' ! -regex '^./.git\(/.*\)?' ! -regex '^./node_modules\(/.*\)?' -delete
         sudo mv ./build/* .
 
-    - name: Log filesystem
+    - name: Add files to staging and commit
       run: |
         git add -- . :!./node_modules
-        git status
-
-#     - name: Add files to staging and commit
-#       run: |
-#         git add
-#         git config --global user.name 'Github Action'
-#         git config --global user.email 'action@github.com'
-#         git commit -m "Automated deploy by github actions"
-#         git push
+        git config --global user.name 'Github Action'
+        git config --global user.email 'action@github.com'
+        git commit -m "Automated deploy by github actions"
+        git push
