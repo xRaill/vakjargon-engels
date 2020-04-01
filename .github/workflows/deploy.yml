@@ -35,7 +35,9 @@ jobs:
         sudo mv ./build/* .
 
     - name: Log filesystem
-      run: git status
+      run: |
+        git add -- . :!./node_modules
+        git status
 
 #     - name: Add files to staging and commit
 #       run: |
