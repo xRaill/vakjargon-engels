@@ -25,9 +25,10 @@ jobs:
         cmd: build:prod
 
     - name: Git checkout gh-pages
-      uses: actions/checkout@v2
-      with:
-        path: gh-pages
+      run: git checkout gh-pages
+#       uses: actions/checkout@v2
+#       with:
+#         path: gh-pages
  
     - name: Remove all but build from filesystem
       run: |
