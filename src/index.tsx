@@ -1,7 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './js/App';
 
-import './scss/main.scss';
+import Loadable from 'react-loadable';
+import Loading from './js/pages/Loading';
 
-render(<App />, document.getElementById('root'));
+const LoadPage = Loadable({
+	loader: () => import('./js/App'),
+	loading: (props) => <Loading {...props} />,
+	timeout: 5000
+});
+
+render(<LoadPage />, document.getElementById('root'));

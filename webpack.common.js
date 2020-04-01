@@ -1,5 +1,5 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const CopyWebpackPlugin      = require('copy-webpack-plugin');
+const CopyWebpackPlugin      = require('copy-webpack-plugin');
 const HtmlWebpackPlugin      = require('html-webpack-plugin');
 const WriteFilePlugin        = require('write-file-webpack-plugin'); 
 const webpack                = require('webpack');
@@ -30,12 +30,11 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
-		// new CopyWebpackPlugin([{
-		// 	from: path.resolve(__dirname, './public')
-		// }]),
+		new CopyWebpackPlugin([{
+			from: path.resolve(__dirname, './public')
+		}]),
 		new HtmlWebpackPlugin({
-			template: './index.html',
-			title: 'test'
+			template: './index.html'
 		}),
 		new WriteFilePlugin({ test: /^((?!hot-update).)*$/g }),
 		new webpack.HashedModuleIdsPlugin()

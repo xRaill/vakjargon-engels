@@ -1,0 +1,32 @@
+@import 'App';
+@import '~bootstrap/scss/buttons';
+@import '../components/transition';
+
+.animateButtons {
+	@include transition('div', (
+		transform: scaleY(0) scaleY(1),
+	), .5s, cubic-bezier(0.250, 0.250, 0.370, 1.650) ease)
+}
+
+.animateQuestion {
+	@include transition('', (
+		transform: translateY(-100%) translateY(0) translateY(100%),
+		opacity: 0 1
+	), .4s, ease-out ease-in)
+}
+
+.animateScore {
+	@include transition('', (
+		transform: scale(0) scale(1) scale(1.5)
+	), .2s, ease-in ease-out)
+}
+
+.disableClick {
+	pointer-events: none;
+}
+
+.center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

@@ -1,0 +1,16 @@
+@import 'App';
+@import "~bootstrap/scss/buttons";
+@import '../components/transition';
+
+.animatePage {
+	@include transition ('', (
+		transform: (scaleY(.5) scaleX(.5)) (scaleY(1) scaleX(1)) (scaleY(1.5) scaleX(1.5)),
+		opacity: 0 1
+	), .2s, ease);
+}
+
+.center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
