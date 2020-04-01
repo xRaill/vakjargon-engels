@@ -28,6 +28,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: gh-pages
+        clean: false
  
     - name: Remove all but build from filesystem
       run: |
