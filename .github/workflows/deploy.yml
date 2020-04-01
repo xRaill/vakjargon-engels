@@ -31,7 +31,7 @@ jobs:
  
     - name: Remove all but build from filesystem
       run: |
-        find . -mindepth 1 ! -regex '^./build\(/.*\)?' ! -regex '^./.git\(/.*\)?' -delete
+        find . -mindepth 1 ! -regex '^./build\(/.*\)?' ! -regex '^./.git\(/.*\)?' ! -regex '^./node_modules\(/.*\)?' -delete
         mv ./build/* .
         rm ./build
 
