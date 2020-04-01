@@ -33,7 +33,6 @@ jobs:
       run: |
         find . -mindepth 1 ! -regex '^./build\(/.*\)?' ! -regex '^./.git\(/.*\)?' ! -regex '^./node_modules\(/.*\)?' -delete
         sudo mv ./build/* .
-        rm ./build
 
     - name: Log filesystem
       run: ls -a
