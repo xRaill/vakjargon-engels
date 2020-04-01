@@ -1,4 +1,4 @@
-name: Build yarn
+name: Test build
 
 on:
   push:
