@@ -1,0 +1,44 @@
+name: Deploy to github pages
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Git checkout master
+      uses: actions/checkout@v2
+    
+    - name: Yarn install
+      uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: install
+
+    - name: Build production
+      uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: build:prod
+
+    - name: Git checkout gh-pages
+      uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+        clean: false
+ 
+    - name: Remove all but build from filesystem
+      run: |
+        find . -mindepth 1 ! -regex '^./build\(/.*\)?' ! -regex '^./.git\(/.*\)?' ! -regex '^./node_modules\(/.*\)?' -delete
+        sudo mv ./build/* .
+
+    - name: Add files to staging and commit
+      run: |
+        git add -- . :!./node_modules
+        git config --global user.name 'Github Action'
+        git config --global user.email 'action@github.com'
+        git commit -m "Automated deploy by github actions" --allow-empty
+        git push
