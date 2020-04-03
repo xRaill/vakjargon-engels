@@ -11,18 +11,9 @@ interface Quiz  {
 	correct: number
 }
 
-const Question: Quiz[] = [
-	{id: 0, question: 'aBCD', options: ['A', 'B', 'C', 'D'], correct: 0},
-	{id: 1, question: 'AbCD', options: ['A', 'B', 'C', 'D'], correct: 1},
-	{id: 2, question: 'ABcD', options: ['A', 'B', 'C', 'D'], correct: 2},
-	{id: 3, question: 'ABCd', options: ['A', 'B', 'C', 'D'], correct: 3},
-	{id: 4, question: 'Abcd', options: ['A', 'B', 'C', 'D'], correct: 0},
-	{id: 5, question: 'aBcd', options: ['A', 'B', 'C', 'D'], correct: 1},
-	{id: 6, question: 'abCd', options: ['A', 'B', 'C', 'D'], correct: 2},
-	{id: 7, question: 'abcD', options: ['A', 'B', 'C', 'D'], correct: 3}
-];
+const Questions: Quiz[] = require('../quiz.json');
 
-let Quiz = Question.slice();
+let Quiz: Quiz[] = Questions.slice();
 
 const Game = () => {
 
@@ -82,7 +73,7 @@ const Game = () => {
 	}, [chosenAnswer]);
 	
 	if(!Quiz.length) {
-		Quiz = Question.slice();
+		Quiz = Questions.slice();
 		return <Redirect push to={{
 			pathname: 'complete',
 			state: {score: score}

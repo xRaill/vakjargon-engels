@@ -1,0 +1,112 @@
+[
+	{
+		"id": 0,
+		"question": "Frontend",
+		"correct": 0,
+		"options": [
+			"The code that the user interacts with when visiting a website",
+			"The first page you see when visiting a website",
+			"The code that handles background stuff",
+			"A website that adapts to your screen size"
+		]
+	},
+	{
+		"id": 1,
+		"question": "Backend",
+		"correct": 1,
+		"options": [
+			"A programming base to start off",
+			"The code that handles background stuff",
+			"A place to store secured information",
+			"The code that the user interacts with when visiting a website"
+		]
+	},
+	{
+		"id": 2,
+		"question": "Framework",
+		"correct": 2,
+		"options": [
+			"The code that handles background stuff",
+			"The code that the user interacts with when visiting a website",
+			"A programming base to start off",
+			"A way to track all code changes overtime"
+		]
+	},
+	{
+		"id": 3,
+		"question": "Version control",
+		"correct": 3,
+		"options": [
+			"A place to store secured information",
+			"Giving your website a version",
+			"Where you code your website",
+			"A way to track all code changes overtime"
+		]
+	},
+	{
+		"id": 4,
+		"question": "IDE",
+		"correct": 0,
+		"options": [
+			"Where you code your website",
+			"A way to communicate with different applications",
+			"A way to track all code changes overtime",
+			"A website where the content dynamically is generated"
+		]
+	},
+	{
+		"id": 5,
+		"question": "SPA",
+		"correct": 1,
+		"options": [
+			"A way to communicate with different applications",
+			"A one-page website that load in content as needed",
+			"Where you code your website",
+			"?14"
+		]
+	},
+	{
+		"id": 6,
+		"question": "API",
+		"correct": 2,
+		"options": [
+			"A one-page website that load in content as needed",
+			"A place to store secured information",
+			"A way to communicate with different applications",
+			"A website where the content dynamically is generated"
+		]
+	},
+	{
+		"id": 7,
+		"question": "SEO",
+		"correct": 3,
+		"options": [
+			"A website where all content is the same for everyone and can only be changed manually",
+			"A dynamically is generated website",
+			"A website that adapts to your screen size",
+			"Optimizng your website for search engines"
+		]
+	},
+	{
+		"id": 8,
+		"question": "Static website",
+		"correct": 1,
+		"options": [
+			"A website that is slow",
+			"A website where all content is the same for everyone and can only be changed manually",
+			"A one-page website that load in content as needed",
+			"A website where the content dynamically is generated"
+		]
+	},
+	{
+		"id": 9,
+		"question": "Responsive website",
+		"correct": 2,
+		"options": [
+			"A website where the content dynamically is generated",
+			"A website that is very fast",
+			"A website that adapts to your screen size",
+			"A one-page website that load in content as needed"
+		]
+	}
+]
