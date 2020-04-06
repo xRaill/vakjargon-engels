@@ -11,18 +11,9 @@ interface Quiz  {
 	correct: number
 }
 
-const Question: Quiz[] = [
-	{id: 0, question: 'aBCD', options: ['A', 'B', 'C', 'D'], correct: 0},
-	{id: 1, question: 'AbCD', options: ['A', 'B', 'C', 'D'], correct: 1},
-	{id: 2, question: 'ABcD', options: ['A', 'B', 'C', 'D'], correct: 2},
-	{id: 3, question: 'ABCd', options: ['A', 'B', 'C', 'D'], correct: 3},
-	{id: 4, question: 'Abcd', options: ['A', 'B', 'C', 'D'], correct: 0},
-	{id: 5, question: 'aBcd', options: ['A', 'B', 'C', 'D'], correct: 1},
-	{id: 6, question: 'abCd', options: ['A', 'B', 'C', 'D'], correct: 2},
-	{id: 7, question: 'abcD', options: ['A', 'B', 'C', 'D'], correct: 3}
-];
+const Questions: Quiz[] = require('../quiz.json');
 
-let Quiz = Question.slice();
+let Quiz: Quiz[] = Questions.slice();
 
 const Game = () => {
 
@@ -32,7 +23,8 @@ const Game = () => {
 	const [score, setScore] = useState<number>(0);
 	const [visible, setVisible] = useState<boolean>(false);
 	const [disabled, setDisabled] = useState<boolean>(true);
-	
+	const [questionI, setQuestionI] = useState<number>(0);
+
 	useEffect(() => {
 
 		const randomQuestion = () => {
@@ -40,20 +32,20 @@ const Game = () => {
 			
 			setCurrentQuestion(Quiz[randomNum]);
 			
-			const prevAnswers = Quiz[randomNum].options.map((a,i) => ({i:i,a:a}));
-			let newAnswers = [];
+			const unsortedAnswers = Quiz[randomNum].options.map((a,i) => ({i:i,a:a}));
+			let sortedAnswers = [];
 			for (let i = 0; i < 4; i++) {
-				const num = Math.floor(Math.random() * prevAnswers.length);
-				
-				newAnswers.push({
-					i: prevAnswers[num].i,
-					v: prevAnswers[num].a,
+				let num = [[0,1,2,3],[3,2,0,1],[1,0,3,2],[2,3,1,0]][questionI][i];
+
+				sortedAnswers.push({
+					i: unsortedAnswers[num].i,
+					v: unsortedAnswers[num].a,
 					b: 'primary'
 				});
-				prevAnswers.splice(num, 1);
 			}
+			setQuestionI(questionI == 3 ? 0 : questionI + 1);
 			
-			setAnswers(newAnswers);
+			setAnswers(sortedAnswers);
 			setVisible(true);
 			setDisabled(false);
 		}
@@ -82,7 +74,7 @@ const Game = () => {
 	}, [chosenAnswer]);
 	
 	if(!Quiz.length) {
-		Quiz = Question.slice();
+		Quiz = Questions.slice();
 		return <Redirect push to={{
 			pathname: 'complete',
 			state: {score: score}
