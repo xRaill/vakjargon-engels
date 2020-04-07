@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Transition from '../components/Transition';
+import React, { useState, useEffect, useRef } from 'react';
 import { Redirect } from 'react-router-dom';
+import Transition from '../components/Transition';
+import Score from '../components/Quiz/Score';
 
 import styles from '../../scss/pages/Game.scss';
 
@@ -20,10 +21,11 @@ const Game = () => {
 	const [currentQuestion, setCurrentQuestion] = useState<Quiz>();
 	const [chosenAnswer,setChosenAnswer] = useState<number>();
 	const [answers, setAnswers] = useState<{i: number; v: string, b: string}[]>();
-	const [score, setScore] = useState<number>(0);
 	const [visible, setVisible] = useState<boolean>(false);
 	const [disabled, setDisabled] = useState<boolean>(true);
 	const [questionI, setQuestionI] = useState<number>(0);
+	const [redirect, setRedirect] = useState<boolean>(false);
+	const scoreRef = useRef(null);
 
 	useEffect(() => {
 
@@ -59,25 +61,26 @@ const Game = () => {
 
 			if(chosenAnswer === currentQuestion.correct) {
 				answer.b = 'success';
-				setTimeout(() => setScore(score + 1), 1200);
+				scoreRef.current.increseScore();
 			} else {
 				answer.b = 'danger';
-				setTimeout(() => setScore(score - 1), 1200);
+				scoreRef.current.decreseScore();
 			}
 			
 			setTimeout(() => {
 				setVisible(false);
 				Quiz.splice(Quiz.findIndex(a => a.id === currentQuestion.id), 1);
 				if(Quiz.length) setTimeout(() => randomQuestion(), 500);
+				else setTimeout(() => setRedirect(true), 500);
 			}, 1000);
 		}
 	}, [chosenAnswer]);
 	
-	if(!Quiz.length) {
+	if(redirect) {
 		Quiz = Questions.slice();
 		return <Redirect push to={{
 			pathname: 'complete',
-			state: {score: score}
+			state: {score: scoreRef.current.getScore()}
 		}}/>
 	}
 	
@@ -85,9 +88,7 @@ const Game = () => {
 		<>
 		<div className={`${styles.row} ${styles["py-lg-5"]}`}>
 			<div className={styles["col-2"]}>
-				<Transition in={visible} timeout={500} className={"animateScore"} style={styles}>
-					<h1 className={styles["text-center"]}>{score}</h1>
-				</Transition>
+				<Score ref={scoreRef} />
 			</div>
 			<Transition in={visible} timeout={400} className={"animateQuestion"} style={styles}>
 				<h1 className={`${styles["col-8"]} ${styles["text-center"]}`}>
