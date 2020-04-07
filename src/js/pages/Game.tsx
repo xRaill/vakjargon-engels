@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Redirect } from 'react-router-dom';
 import Transition from '../components/Transition';
 import Score from '../components/Quiz/Score';
+import Title from '../components/Quiz/Title';
 
 import styles from '../../scss/pages/Game.scss';
 
@@ -90,11 +91,9 @@ const Game = () => {
 			<div className={styles["col-2"]}>
 				<Score ref={scoreRef} />
 			</div>
-			<Transition in={visible} timeout={400} className={"animateQuestion"} style={styles}>
-				<h1 className={`${styles["col-8"]} ${styles["text-center"]}`}>
-					{currentQuestion ? currentQuestion.question : ''}
-				</h1>
-			</Transition>
+			<div className={styles["col-8"]}>
+				<Title>{currentQuestion ? currentQuestion.question : ''}</Title>
+			</div>
 		</div>
 		<Transition in={visible} timeout={500} className={"animateButtons"} style={styles}>
 			<div className={`${styles.row}`}>
