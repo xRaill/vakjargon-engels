@@ -62,10 +62,10 @@ const Game = () => {
 
 			if(chosenAnswer === currentQuestion.correct) {
 				answer.b = 'success';
-				scoreRef.current.increseScore();
+				scoreRef.current.increaseScore();
 			} else {
 				answer.b = 'danger';
-				scoreRef.current.decreseScore();
+				scoreRef.current.decreaseScore();
 			}
 			
 			setTimeout(() => {

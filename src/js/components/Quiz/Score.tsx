@@ -10,11 +10,11 @@ const Score = (props, ref) => {
 
 	useImperativeHandle(ref, () => ({
 		getScore: () => score,
-		increseScore: () => {
+		increaseScore: () => {
 			setVisible(false);
 			setTimeout(() => setScore(score + 1), 500);
 		},
-		decreseScore: () => {
+		decreaseScore: () => {
 			setVisible(false);			
 			setTimeout(() => setScore(score - 1), 500);
 		}
