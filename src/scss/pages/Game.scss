@@ -3,20 +3,20 @@
 @import '../components/transition';
 
 .animateButtons {
-	@include transition('div', (
+	@include transition((
 		transform: scaleY(0) scaleY(1),
 	), .5s, cubic-bezier(0.250, 0.250, 0.370, 1.650) ease)
 }
 
 .animateQuestion {
-	@include transition('', (
+	@include transition((
 		transform: translateY(-100%) translateY(0) translateY(100%),
 		opacity: 0 1
 	), .4s, ease-out ease-in)
 }
 
 .animateScore {
-	@include transition('', (
+	@include transition((
 		transform: scale(0) scale(1) scale(1.5)
 	), .2s, ease-in ease-out)
 }

@@ -3,7 +3,7 @@
 @import '../components/transition';
 
 .animatePage {
-	@include transition ('', (
+	@include transition ((
 		transform: (scaleY(.5) scaleX(.5)) (scaleY(1) scaleX(1)) (scaleY(1.5) scaleX(1.5)),
 		opacity: 0 1,
 		pointer-events: none visible
