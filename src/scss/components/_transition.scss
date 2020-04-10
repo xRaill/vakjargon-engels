@@ -22,27 +22,27 @@
 	@return $list;
 }
 
-@mixin transition($child, $props, $speed, $timing-function) {
+@mixin transition($props, $speed, $timing-function) {
 	
 	@each $key, $val in $props {
 		@if not length($val) == 2 or not length($val) == 3 { @error $key length is not 2 or 3; }
 	}
 	
-	& #{$child} { @include list($props, true, false); }
+	& { @include list($props, true, false); }
 	
 	&-enter {
-		& #{$child} {
+		& {
 			transition: get-transition(map-keys($props), $speed, $timing-function);
 			@include list($props, true, false);
 		};
-		&-active #{$child}, &-done #{$child} { @include list($props, false, false); }
+		&-active, &-done { @include list($props, false, false); }
 	}
 	
 	&-exit {
-		& #{$child} {
+		& {
 			transition: get-transition(map-keys($props), $speed, $timing-function, true);
 			@include list($props, true, true);
 		};
-		&-active #{$child}, &-done #{$child} { @include list($props, false, true); }
+		&-active, &-done { @include list($props, false, true); }
 	}
 }
