@@ -28,7 +28,10 @@ const Complete = (props) => {
 				<h1 className={styles["pt-5"]}>Score</h1>
 				<h1 className={styles["pb-5"]}>{props.location.state ? props.location.state.score : '...'}</h1>
 				<h3>Complete!</h3>
-				<button className={`${styles.btn} ${styles['bg-primary']}`} onClick={() => goTo('game')}>Retry</button>
+				<div>
+					<button className={`${styles.btn} ${styles['bg-primary']}`} onClick={() => goTo('/')}>Home</button>
+					<button className={`${styles.btn} ${styles['bg-primary']}`} onClick={() => goTo('game')}>Retry</button>
+				</div>
 			</div>
 		</Transition>
 	)

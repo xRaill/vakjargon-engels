@@ -1,6 +1,6 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import { MemoryRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Loading from './pages/Loading';
 import Header from './components/Header';
 
@@ -23,7 +23,7 @@ const App = () => {
 	});
 
 	return(
-		<Router>
+		<Router basename={window.location.host.includes('github.io') ? 'vakjargon-engels/' : ''}>
 			<div className={styles.container}>
 				<div className={styles.row}><Header/></div>
 				<Switch>
