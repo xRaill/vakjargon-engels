@@ -36,11 +36,16 @@ const Game = () => {
 		setTimeout(() => {
 			setButtons(false);
 
-			if(Quiz.data.length) setTimeout(() => {
-				newQuestion(null);
-				setButtons(true);
-				setDisabled(false);
-			}, 500);
+			if(Quiz.data.length) {
+				setTimeout(() => {
+					newQuestion(null);
+					setTimeout(() => {
+						setButtons(true);
+						setDisabled(false);
+					}, 500);
+				}, 300);
+			}
+				
 			else setRedirect(true);
 		}, 700);
 
