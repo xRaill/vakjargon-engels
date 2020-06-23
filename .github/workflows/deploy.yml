@@ -34,6 +34,7 @@ jobs:
       run: |
         find . -mindepth 1 ! -regex '^./build\(/.*\)?' ! -regex '^./.git\(/.*\)?' ! -regex '^./node_modules\(/.*\)?' -delete
         sudo mv ./build/* .
+        cp index.html 404.html
 
     - name: Add files to staging and commit
       run: |
